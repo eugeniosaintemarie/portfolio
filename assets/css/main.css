@@ -3407,6 +3407,11 @@
 		font-size: 1em;
 	}
 
+	#menu .menuh2 {
+		text-transform: uppercase;
+		font-size: 0.75em;
+	}
+
 		#menu .inner {
 			-moz-transition: -moz-transform 0.35s ease-out, opacity 0.35s ease, visibility 0.35s;
 			-webkit-transition: -webkit-transform 0.35s ease-out, opacity 0.35s ease, visibility 0.35s;
