@@ -2612,8 +2612,8 @@ button:disabled,
     background-size: cover;
     cursor: default;
     height: 40vh;
-    max-height: 40em;
-    min-height: 23em;
+    max-height: 15em;
+    min-height: 15em;
     overflow: hidden;
     position: relative;
     width: 40%
@@ -2723,8 +2723,8 @@ button:disabled,
     .tiles article {
         padding: 4em 3em 2em 3em;
         height: 30vh;
-        max-height: 30em;
-        min-height: 20em
+        max-height: 15em;
+        min-height: 15em
     }
 }
 
