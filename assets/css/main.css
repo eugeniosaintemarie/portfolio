@@ -1853,7 +1853,7 @@ a {
 
 a:hover {
     border-bottom-color: transparent;
-    color: #9C27B0 !important
+    color: #9E9E9E !important
 }
 
 a:active {
@@ -2212,7 +2212,7 @@ input[type="radio"]:checked+label:before {
 
 input[type="checkbox"]:focus+label:before,
 input[type="radio"]:focus+label:before {
-    box-shadow: 0 0 0 2px #9C27B0
+    box-shadow: 0 0 0 2px #9E9E9E
 }
 
 input[type="radio"]+label:before {
@@ -2300,11 +2300,11 @@ a.icon.alt:before {
 }
 
 a.icon.alt:hover:before {
-    background-color: #9C27B0
+    background-color: #9E9E9E
 }
 
 a.icon.alt:active:before {
-    background-color: #9C27B0
+    background-color: #9E9E9E
 }
 
 .image {
@@ -2519,12 +2519,12 @@ ul.pagination li>.page.active {
 }
 
 ul.pagination li>.page.active:hover {
-    background-color: #9C27B0;
+    background-color: #9E9E9E;
     color: #0B1215 !important
 }
 
 ul.pagination li>.page.active:active {
-    background-color: #9C27B0
+    background-color: #9E9E9E
 }
 
 ul.pagination li:first-child {
@@ -2667,8 +2667,8 @@ button:hover,
 button:active,
 .button:hover,
 .button:active {
-    box-shadow: inset 0 0 0 2px #9C27B0;
-    color: #9C27B0
+    box-shadow: inset 0 0 0 2px #9E9E9E;
+    color: #9E9E9E
 }
 
 input[type="submit"]:active,
@@ -2677,8 +2677,8 @@ input[type="button"]:active,
 button:active,
 .button:active {
     background-color: rgba(155, 241, 255, .1);
-    box-shadow: inset 0 0 0 2px #9C27B0;
-    color: #9C27B0
+    box-shadow: inset 0 0 0 2px #9E9E9E;
+    color: #9E9E9E
 }
 
 input[type="submit"].icon:before,
@@ -2766,7 +2766,7 @@ input[type="reset"].next:after,
 input[type="button"].next:after,
 button.next:after,
 .button.next:after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %239C27B0%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %239E9E9E%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
     opacity: 0;
     z-index: 1
 }
@@ -2815,7 +2815,7 @@ button.special:hover,
 button.special:active,
 .button.special:hover,
 .button.special:active {
-    background-color: #9C27B0;
+    background-color: #9E9E9E;
     color: #0B1215 !important
 }
 
@@ -2824,7 +2824,7 @@ input[type="reset"].special:active,
 input[type="button"].special:active,
 button.special:active,
 .button.special:active {
-    background-color: #9C27B0
+    background-color: #9E9E9E
 }
 
 input[type="submit"].disabled,
@@ -2964,27 +2964,27 @@ button:disabled,
 }
 
 .tiles article:nth-child(6n - 5):before {
-    background-color: #1E88E5
+    background-color: #F44336
 }
 
 .tiles article:nth-child(6n - 4):before {
-    background-color: #2196F3
+    background-color: #9C27B0
 }
 
 .tiles article:nth-child(6n - 3):before {
-    background-color: #42A5F5
-}
-
-.tiles article:nth-child(6n - 2):before {
-    background-color: #1E88E5
-}
-
-.tiles article:nth-child(6n - 1):before {
     background-color: #2196F3
 }
 
+.tiles article:nth-child(6n - 2):before {
+    background-color: #4CAF50
+}
+
+.tiles article:nth-child(6n - 1):before {
+    background-color: #FFEB3B
+}
+
 .tiles article:nth-child(6n):before {
-    background-color: #42A5F5
+    background-color: #FF9800
 }
 
 @media screen and (max-width:1280px) {
@@ -3253,11 +3253,11 @@ button:disabled,
 }
 
 #header .logo:hover strong {
-    background-color: #9C27B0
+    background-color: #9E9E9E
 }
 
 #header .logo:active strong {
-    background-color: #9C27B0
+    background-color: #9E9E9E
 }
 
 #header nav {
@@ -3317,7 +3317,7 @@ button:disabled,
     -webkit-transition: opacity 0.2s ease-in-out;
     -ms-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='32' viewBox='0 0 24 32' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 2px%3B stroke: %239C27B0%3B %7D%3C/style%3E%3Cline x1='0' y1='11' x2='24' y2='11' /%3E%3Cline x1='0' y1='21' x2='24' y2='21' /%3E%3Cline x1='0' y1='16' x2='24' y2='16' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='32' viewBox='0 0 24 32' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 2px%3B stroke: %239E9E9E%3B %7D%3C/style%3E%3Cline x1='0' y1='11' x2='24' y2='11' /%3E%3Cline x1='0' y1='21' x2='24' y2='21' /%3E%3Cline x1='0' y1='16' x2='24' y2='16' /%3E%3C/svg%3E");
     opacity: 0;
     z-index: 1
 }
@@ -3362,27 +3362,27 @@ button:disabled,
 }
 
 #header.alt.style1 .logo strong {
-    color: #9C27B0
+    color: #9E9E9E
 }
 
 #header.alt.style2 .logo strong {
-    color: #9C27B0
+    color: #9E9E9E
 }
 
 #header.alt.style3 .logo strong {
-    color: #9C27B0
+    color: #9E9E9E
 }
 
 #header.alt.style4 .logo strong {
-    color: #9C27B0
+    color: #9E9E9E
 }
 
 #header.alt.style5 .logo strong {
-    color: #9C27B0
+    color: #9E9E9E
 }
 
 #header.alt.style6 .logo strong {
-    color: #9C27B0
+    color: #9E9E9E
 }
 
 body.is-loading #header.alt {
@@ -3473,7 +3473,7 @@ body.is-loading #header.alt {
 }
 
 #main {
-    background-color: #9C27B0
+    background-color: #9E9E9E
 }
 
 #main>* {
@@ -3686,7 +3686,7 @@ body.is-loading #header.alt {
 }
 
 #menu .close:after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %239C27B0%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %239E9E9E%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
     opacity: 0
 }
 
