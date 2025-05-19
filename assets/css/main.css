@@ -5,6 +5,11 @@
   text-transform: none !important;
 }
 
+.project-tag {
+  letter-spacing: 0em !important;
+  font-family: 'Inconsolata', 'Consolas', 'Monaco', 'Courier New', monospace !important;
+}
+
 html,
 body,
 div,
