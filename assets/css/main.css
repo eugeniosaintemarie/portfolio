@@ -1,6 +1,39 @@
 @import url(font-awesome.min.css);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic);
 
+/* Clases personalizadas para optimizar estilos inline */
+.tag-code {
+    letter-spacing: 0em;
+    font-family: 'Inconsolata', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.tag-website {
+    text-transform: none;
+}
+
+.tag-webapp {
+    text-transform: none;
+}
+
+.project-description {
+    text-transform: none;
+}
+
+.author-name {
+    text-transform: capitalize;
+    letter-spacing: 0em;
+    font-size: 0.5em;
+}
+
+.project-subtitle {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.header-plus {
+    margin-left: 0.5em;
+}
+
 html,
 body,
 div,
