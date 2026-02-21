@@ -2025,8 +2025,7 @@ article.special {
     text-align: center
 }
 
-header.major,
-article > header {
+header.major {
     width: -moz-max-content;
     width: -webkit-max-content;
     width: -ms-max-content;
@@ -2034,14 +2033,12 @@ article > header {
     margin-bottom: 2em
 }
 
-header.major>:first-child,
-article > header>:first-child {
+header.major>:first-child {
     margin-bottom: 0;
     width: calc(100% + 0.5em)
 }
 
-header.major>:first-child:after,
-article > header>:first-child:after {
+header.major>:first-child:after {
     content: '';
     background-color: #fff;
     display: block;
@@ -2050,8 +2047,7 @@ article > header>:first-child:after {
     width: 100%
 }
 
-header.major>p,
-article > header>p {
+header.major>p {
     font-size: .7em;
     font-weight: 600;
     letter-spacing: .25em;
@@ -2059,19 +2055,16 @@ article > header>p {
     text-transform: uppercase
 }
 
-body.is-ie header.major>:first-child:after,
-body.is-ie article > header>:first-child:after {
+body.is-ie header.major>:first-child:after {
     max-width: 9em
 }
 
-body.is-ie header.major>h1:after,
-body.is-ie article > header>h1:after {
+body.is-ie header.major>h1:after {
     max-width: 100% !important
 }
 
 @media screen and (max-width:736px) {
-    header.major>p br,
-    article > header>p br {
+    header.major>p br {
         display: none
     }
 }
