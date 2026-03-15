@@ -54,13 +54,6 @@
       gtag("config", "G-LNQ47VG50M");
     </script>
     <style>
-      .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-      }
-
       .project-filter {
         padding: 8px 12px;
         border: 1px solid #ddd;
@@ -72,7 +65,7 @@
         color: #555;
         transition: all 0.3s ease;
         min-width: 200px;
-        width: auto;
+        margin-left: 15px;
       }
 
       .project-filter:hover {
@@ -86,23 +79,7 @@
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       }
 
-      header nav {
-        display: flex;
-        align-items: center;
-        padding-right: 20px;
-      }
-
-      section.tiles {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-      }
-
-      section.tiles article {
-        width: 100%;
-      }
-
-      section.tiles article.hidden {
+      article.hidden {
         display: none;
       }
     </style>
@@ -111,23 +88,22 @@
   <body>
     <div id="wrapper">
       <header id="header" class="navbar-fixed-top">
-        <div class="header-content">
-          <a href="#menu" class="logo"
-            ><strong>Eugenio Sainte Marie</strong
-            ><span class="plus">
-              WEB
-              <!--DESIGN &-->
-              DEVELOPMENT - Portfolio</span
-            ></a
-          >
-          <nav>
-            <select id="projectFilter" class="project-filter">
-              <option value="">Ver todos los proyectos</option>
-              <option value="&lt;/app&gt;">&lt;/app&gt;</option>
-              <option value="&lt;/site&gt;">&lt;/site&gt;</option>
-            </select>
-          </nav>
-        </div>
+        <a href="#menu" class="logo"
+          ><strong>Eugenio Sainte Marie</strong
+          ><span class="plus">
+            WEB
+            <!--DESIGN &-->
+            DEVELOPMENT - Portfolio</span
+          ></a
+        >
+        <nav>
+          <select id="projectFilter" class="project-filter">
+            <option value="">Ver todos los proyectos</option>
+            <option value="&lt;/app&gt;">&lt;/app&gt;</option>
+            <option value="&lt;/site&gt;">&lt;/site&gt;</option>
+          </select>
+          <a href="#menu"></a>
+        </nav>
       </header>
       <nav id="menu">
         <ul class="links">
