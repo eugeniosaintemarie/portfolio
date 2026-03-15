@@ -96,13 +96,29 @@
         align-items: center;
         gap: 10px;
       }
+
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+        margin-left: auto;
+        padding: 10px;
+        font-size: 24px;
+        color: #333;
+        text-decoration: none;
+      }
+
+      @media (max-width: 736px) {
+        .menu-toggle {
+          display: block;
+        }
+      }
     </style>
   </head>
 
   <body>
     <div id="wrapper">
       <header id="header" class="navbar-fixed-top">
-        <a href="#menu" class="logo"
+        <a class="logo"
           ><strong>Eugenio Sainte Marie</strong
           ><span class="plus">
             WEB
@@ -115,6 +131,7 @@
           <option value="&lt;/app&gt;">&lt;Sitios&gt;</option>
           <option value="&lt;/site&gt;">&lt;Apps&gt;</option>
         </select>
+        <a href="#menu" class="menu-toggle"><i class="fa fa-bars"></i></a>
       </header>
       <nav id="menu">
         <ul class="links">
