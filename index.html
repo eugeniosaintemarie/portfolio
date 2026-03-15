@@ -53,6 +53,40 @@
       gtag("js", new Date());
       gtag("config", "G-LNQ47VG50M");
     </script>
+    <style>
+      .project-filter {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: white;
+        font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        color: #555;
+        transition: all 0.3s ease;
+      }
+
+      .project-filter:hover {
+        border-color: #888;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-filter:focus {
+        outline: none;
+        border-color: #333;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+
+      header nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      article.hidden {
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -67,8 +101,11 @@
           ></a
         >
         <nav>
-          <br />
-          <a href="#menu"></a>
+          <select id="projectFilter" class="project-filter">
+            <option value="">Ver todos los proyectos</option>
+            <option value="&lt;/app&gt;">&lt;/app&gt;</option>
+            <option value="&lt;/site&gt;">&lt;/site&gt;</option>
+          </select>
         </nav>
       </header>
       <nav id="menu">
@@ -561,6 +598,41 @@
       <script src="assets/js/skel.min.js"></script>
       <script src="assets/js/util.js"></script>
       <script src="assets/js/main.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const filterSelect = document.getElementById('projectFilter');
+          const articles = document.querySelectorAll('section.tiles article');
+
+          // Crear un mapa de artículos con sus tags
+          const articleTagMap = new Map();
+          articles.forEach((article, index) => {
+            const tagSpan = article.querySelector('.project-tag');
+            if (tagSpan) {
+              const tagText = tagSpan.textContent.trim();
+              articleTagMap.set(article, tagText);
+            }
+          });
+
+          // Agregar evento al selector
+          filterSelect.addEventListener('change', function() {
+            const selectedTag = this.value;
+            articles.forEach(article => {
+              const articleTag = articleTagMap.get(article);
+              if (selectedTag === '') {
+                // Mostrar todos
+                article.classList.remove('hidden');
+              } else {
+                // Mostrar solo los que coincidan con el tag seleccionado
+                if (articleTag === selectedTag) {
+                  article.classList.remove('hidden');
+                } else {
+                  article.classList.add('hidden');
+                }
+              }
+            });
+          });
+        });
+      </script>
     </div>
   </body>
 </html>
