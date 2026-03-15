@@ -13,6 +13,8 @@
 .project-tag {
     letter-spacing: 0em !important;
     font-family: 'Inconsolata', 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    text-transform: none !important;
+    font-style: normal !important;
 }
 
 .author-name {
