@@ -64,7 +64,7 @@
         cursor: pointer;
         color: #555;
         transition: all 0.3s ease;
-        min-width: 200px;
+        width: 200px;
         margin-left: 15px;
       }
 
@@ -77,10 +77,6 @@
         outline: none;
         border-color: #333;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-      }
-
-      article.hidden {
-        display: none;
       }
     </style>
   </head>
@@ -97,23 +93,28 @@
           ></a
         >
         <nav>
-          <select id="projectFilter" class="project-filter">
-            <option value="">Ver todos los proyectos</option>
-            <option value="&lt;/app&gt;">&lt;/app&gt;</option>
-            <option value="&lt;/site&gt;">&lt;/site&gt;</option>
-          </select>
+          <br />
           <a href="#menu"></a>
         </nav>
       </header>
       <nav id="menu">
         <ul class="links">
           <li>
-            <h1 class="menuh1">Eugenio Sainte Marie</h1>
-            <h2 class="menuh2">
-              WEB
-              <!--DESIGN &-->
-              DEVELOPMENT
-            </h2>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h1 class="menuh1">Eugenio Sainte Marie</h1>
+                <h2 class="menuh2">
+                  WEB
+                  <!--DESIGN &-->
+                  DEVELOPMENT
+                </h2>
+              </div>
+              <select id="projectFilter" class="project-filter">
+                <option value="">Ver todos los proyectos</option>
+                <option value="&lt;/app&gt;">&lt;/app&gt;</option>
+                <option value="&lt;/site&gt;">&lt;/site&gt;</option>
+              </select>
+            </div>
           </li>
         </ul>
         <ul class="actions vertical">
@@ -598,33 +599,27 @@
       <script>
         document.addEventListener('DOMContentLoaded', function() {
           const filterSelect = document.getElementById('projectFilter');
-          const articles = document.querySelectorAll('section.tiles article');
+          const tilesSection = document.querySelector('section.tiles');
+          const allArticles = Array.from(tilesSection.querySelectorAll('article'));
 
-          // Crear un mapa de artículos con sus tags
-          const articleTagMap = new Map();
-          articles.forEach((article, index) => {
-            const tagSpan = article.querySelector('.project-tag');
-            if (tagSpan) {
-              const tagText = tagSpan.textContent.trim();
-              articleTagMap.set(article, tagText);
-            }
-          });
+          // Guardar clones de todos los articles para poder restaurarlos
+          const articlesData = allArticles.map(article => ({
+            element: article,
+            clone: article.cloneNode(true),
+            tag: article.querySelector('.project-tag')?.textContent.trim() || null
+          }));
 
           // Agregar evento al selector
           filterSelect.addEventListener('change', function() {
             const selectedTag = this.value;
-            articles.forEach(article => {
-              const articleTag = articleTagMap.get(article);
-              if (selectedTag === '') {
-                // Mostrar todos
-                article.classList.remove('hidden');
-              } else {
-                // Mostrar solo los que coincidan con el tag seleccionado
-                if (articleTag === selectedTag) {
-                  article.classList.remove('hidden');
-                } else {
-                  article.classList.add('hidden');
-                }
+            
+            // Remover todos los articles del DOM
+            allArticles.forEach(article => article.remove());
+            
+            // Agregar solo los que coincidan con el filtro
+            articlesData.forEach(data => {
+              if (selectedTag === '' || data.tag === selectedTag) {
+                tilesSection.appendChild(data.clone);
               }
             });
           });
