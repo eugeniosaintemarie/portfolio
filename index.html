@@ -78,6 +78,22 @@
         border-color: #333;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       }
+
+      header#header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header#header .logo {
+        flex: 1;
+      }
+
+      header#header nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
     </style>
   </head>
 
@@ -93,6 +109,11 @@
           ></a
         >
         <nav>
+          <select id="projectFilter" class="project-filter">
+            <option value="">Ver todos los proyectos</option>
+            <option value="&lt;/app&gt;">&lt;/app&gt;</option>
+            <option value="&lt;/site&gt;">&lt;/site&gt;</option>
+          </select>
           <br />
           <a href="#menu"></a>
         </nav>
@@ -100,21 +121,12 @@
       <nav id="menu">
         <ul class="links">
           <li>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <h1 class="menuh1">Eugenio Sainte Marie</h1>
-                <h2 class="menuh2">
-                  WEB
-                  <!--DESIGN &-->
-                  DEVELOPMENT
-                </h2>
-              </div>
-              <select id="projectFilter" class="project-filter">
-                <option value="">Ver todos los proyectos</option>
-                <option value="&lt;/app&gt;">&lt;/app&gt;</option>
-                <option value="&lt;/site&gt;">&lt;/site&gt;</option>
-              </select>
-            </div>
+            <h1 class="menuh1">Eugenio Sainte Marie</h1>
+            <h2 class="menuh2">
+              WEB
+              <!--DESIGN &-->
+              DEVELOPMENT
+            </h2>
           </li>
         </ul>
         <ul class="actions vertical">
