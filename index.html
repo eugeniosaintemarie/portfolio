@@ -59,7 +59,7 @@
         border: 1px solid #ddd;
         border-radius: 4px;
         background-color: white;
-        font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+        font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
         font-size: 14px;
         cursor: pointer;
         color: #555;
@@ -128,9 +128,9 @@
           ></a
         >
         <select id="projectFilter" class="project-filter">
-          <option value=""><b>ALL</b></option>
-          <option value="&lt;/app&gt;"><b>APPS</b></option>
-          <option value="&lt;/site&gt;"><b>SITES</b></option>
+          <option value="">ALL</option>
+          <option value="&lt;/app&gt;">APPS</option>
+          <option value="&lt;/site&gt;">SITES</option>
         </select>
         <a href="#menu" class="menu-toggle"><i class="fa fa-bars"></i></a>
       </header>
@@ -185,8 +185,7 @@
               </h3>
               <p class="no-transform">
                 <i
-                  >Collaborative platform to reunite pets with their
-                  families</i
+                  >Collaborative platform to reunite pets with their families</i
                 >
                 <span class="project-tag">&lt;/app&gt;</span>
               </p>
@@ -198,7 +197,9 @@
                 <a
                   href="https://github.com/eugeniosaintemarie/youtube-subscriptions?ref=portfolio"
                   target="_blank"
-                  >YouTube subscriptions<span class="small-italic"> tool</span></a
+                  >YouTube subscriptions<span class="small-italic">
+                    tool</span
+                  ></a
                 >
               </h3>
               <p class="no-transform">
@@ -276,7 +277,10 @@
                   >Links</a
                 >
               </h3>
-              <p class="author-name">Eugenio Sainte Marie</p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/site&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -383,7 +387,10 @@
               <h3>
                 <a href="../phrases?ref=portfolio" target="_blank">Phrases</a>
               </h3>
-              <p class="author-name">Eugenio Sainte Marie</p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/site&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -391,7 +398,10 @@
               <h3>
                 <a href="../quotes?ref=portfolio" target="_blank">Quotes</a>
               </h3>
-              <p class="author-name">Eugenio Sainte Marie</p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/site&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -467,7 +477,10 @@
                   >Home</a
                 >
               </h3>
-              <p class="author-name">Eugenio Sainte Marie</p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/site&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -475,7 +488,10 @@
               <h3>
                 <a href="../notes?ref=portfolio" target="_blank">Notes</a>
               </h3>
-              <p class="author-name">Eugenio Sainte Marie</p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/app&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -483,7 +499,10 @@
               <h3>
                 <a href="../photos?ref=portfolio" target="_blank">Photos</a>
               </h3>
-              <p class="author-name">Eugenio Sainte Marie</p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/site&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -505,7 +524,10 @@
                   >Portfolio<span class="small-italic"> v1</span></a
                 >
               </h3>
-              <p class="author-name">Eugenio Sainte Marie</p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/site&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -515,7 +537,10 @@
                   >Consultancy<span class="small-italic"> old</span></a
                 >
               </h3>
-              <p class="author-name">Eugenio Sainte Marie <span class="project-tag">&lt;/site&gt;</span></p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/site&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -537,7 +562,10 @@
                   >Contact<span class="small-italic"> old</span></a
                 >
               </h3>
-              <p class="author-name">Eugenio Sainte Marie</p>
+              <p class="author-name">
+                Eugenio Sainte Marie
+                <span class="project-tag">&lt;/site&gt;</span>
+              </p>
             </header>
           </article>
           <article>
@@ -625,28 +653,31 @@
       <script src="assets/js/util.js"></script>
       <script src="assets/js/main.js"></script>
       <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const filterSelect = document.getElementById('projectFilter');
-          const tilesSection = document.querySelector('section.tiles');
-          const allArticles = Array.from(tilesSection.querySelectorAll('article'));
+        document.addEventListener("DOMContentLoaded", function () {
+          const filterSelect = document.getElementById("projectFilter");
+          const tilesSection = document.querySelector("section.tiles");
+          const allArticles = Array.from(
+            tilesSection.querySelectorAll("article"),
+          );
 
           // Guardar clones de todos los articles para poder restaurarlos
-          const articlesData = allArticles.map(article => ({
+          const articlesData = allArticles.map((article) => ({
             element: article,
             clone: article.cloneNode(true),
-            tag: article.querySelector('.project-tag')?.textContent.trim() || null
+            tag:
+              article.querySelector(".project-tag")?.textContent.trim() || null,
           }));
 
           // Agregar evento al selector
-          filterSelect.addEventListener('change', function() {
+          filterSelect.addEventListener("change", function () {
             const selectedTag = this.value;
-            
+
             // Remover todos los articles del DOM
-            allArticles.forEach(article => article.remove());
-            
+            allArticles.forEach((article) => article.remove());
+
             // Agregar solo los que coincidan con el filtro
-            articlesData.forEach(data => {
-              if (selectedTag === '' || data.tag === selectedTag) {
+            articlesData.forEach((data) => {
+              if (selectedTag === "" || data.tag === selectedTag) {
                 tilesSection.appendChild(data.clone);
               }
             });
