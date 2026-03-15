@@ -54,6 +54,13 @@
       gtag("config", "G-LNQ47VG50M");
     </script>
     <style>
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
       .project-filter {
         padding: 8px 12px;
         border: 1px solid #ddd;
@@ -64,6 +71,8 @@
         cursor: pointer;
         color: #555;
         transition: all 0.3s ease;
+        min-width: 200px;
+        width: auto;
       }
 
       .project-filter:hover {
@@ -79,11 +88,21 @@
 
       header nav {
         display: flex;
-        justify-content: center;
         align-items: center;
+        padding-right: 20px;
       }
 
-      article.hidden {
+      section.tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      section.tiles article {
+        width: 100%;
+      }
+
+      section.tiles article.hidden {
         display: none;
       }
     </style>
@@ -92,21 +111,23 @@
   <body>
     <div id="wrapper">
       <header id="header" class="navbar-fixed-top">
-        <a href="#menu" class="logo"
-          ><strong>Eugenio Sainte Marie</strong
-          ><span class="plus">
-            WEB
-            <!--DESIGN &-->
-            DEVELOPMENT - Portfolio</span
-          ></a
-        >
-        <nav>
-          <select id="projectFilter" class="project-filter">
-            <option value="">Ver todos los proyectos</option>
-            <option value="&lt;/app&gt;">&lt;/app&gt;</option>
-            <option value="&lt;/site&gt;">&lt;/site&gt;</option>
-          </select>
-        </nav>
+        <div class="header-content">
+          <a href="#menu" class="logo"
+            ><strong>Eugenio Sainte Marie</strong
+            ><span class="plus">
+              WEB
+              <!--DESIGN &-->
+              DEVELOPMENT - Portfolio</span
+            ></a
+          >
+          <nav>
+            <select id="projectFilter" class="project-filter">
+              <option value="">Ver todos los proyectos</option>
+              <option value="&lt;/app&gt;">&lt;/app&gt;</option>
+              <option value="&lt;/site&gt;">&lt;/site&gt;</option>
+            </select>
+          </nav>
+        </div>
       </header>
       <nav id="menu">
         <ul class="links">
