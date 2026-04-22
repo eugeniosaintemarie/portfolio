@@ -3434,16 +3434,60 @@ body.is-loading #header.alt {
 
 @media screen and (max-width:736px) {
     #header {
-        height: 2.75em;
-        line-height: 2.75em
+        height: 5.5em;
+        line-height: auto;
+        flex-wrap: wrap;
+        align-items: stretch;
+        align-content: flex-start;
+        position: fixed
     }
 
     #header .logo {
-        padding: 0 1em
+        padding: 0.5em 1em;
+        flex-basis: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1.3;
+        flex: 0 0 auto;
+        position: relative
+    }
+
+    #header .logo strong {
+        line-height: 1.3;
+        margin-right: 0;
+        padding: 0
+    }
+
+    #header .logo .plus {
+        font-size: 0.8em;
+        line-height: 1.3
+    }
+
+    .project-filter {
+        position: absolute;
+        right: 3.5em;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+        width: auto;
+        pointer-events: auto
+    }
+
+    #header nav {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 5.5em;
+        width: auto;
+        line-height: 5.5em
     }
 
     #header nav a {
-        padding: 0 .5em
+        padding: 0 .5em;
+        height: 5.5em;
+        line-height: 5.5em;
+        position: relative
     }
 
     #header nav a:last-child {
@@ -3456,7 +3500,11 @@ body.is-loading #header.alt {
 
     #header nav a[href="#menu"]:before,
     #header nav a[href="#menu"]:after {
-        right: .75em
+        right: .75em;
+        height: 32px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute
     }
 
     #header nav a[href="#menu"]:last-child {
@@ -3554,7 +3602,7 @@ body.is-loading #header.alt {
 
 @media screen and (max-width:736px) {
     #wrapper {
-        padding-top: 2.75em
+        padding-top: 5.5em
     }
 }
 
@@ -3581,6 +3629,7 @@ body.is-loading #header.alt {
     pointer-events: none;
     background: rgba(0, 0, 0, 0.750);
     box-shadow: none;
+    color: #fff;
     height: 100%;
     left: 0;
     opacity: 0;
@@ -3603,6 +3652,43 @@ body.is-loading #header.alt {
     font-size: .75em
 }
 
+#menu {
+    -moz-transition: -moz-transform 0.35s ease, opacity 0.35s ease, visibility 0.35s;
+    -webkit-transition: -webkit-transform 0.35s ease, opacity 0.35s ease, visibility 0.35s;
+    -ms-transition: -ms-transform 0.35s ease, opacity 0.35s ease, visibility 0.35s;
+    transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -moz-pointer-events: none;
+    -webkit-pointer-events: none;
+    -ms-pointer-events: none;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.750);
+    box-shadow: none;
+    color: #fff;
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 3em 2em;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: 10002;
+    filter: none
+}
+
 #menu .inner {
     -moz-transition: -moz-transform 0.35s ease-out, opacity 0.35s ease, visibility 0.35s;
     -webkit-transition: -webkit-transform 0.35s ease-out, opacity 0.35s ease, visibility 0.35s;
@@ -3618,8 +3704,22 @@ body.is-loading #header.alt {
     opacity: 0;
     overflow: auto;
     text-align: center;
+    text-shadow: none;
     visibility: hidden;
-    width: 18em
+    width: 18em;
+    filter: none;
+    -webkit-filter: none;
+    -moz-filter: none;
+    -ms-filter: none
+}
+
+body.is-menu-visible #menu .inner {
+    -moz-transform: none;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important
 }
 
 #menu .inner>:first-child {
@@ -3735,7 +3835,16 @@ body.is-menu-visible #menu {
     -ms-pointer-events: auto;
     pointer-events: auto;
     opacity: 1;
-    visibility: visible
+    visibility: visible;
+    -moz-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: contents;
+    filter: none;
+    -webkit-filter: none;
+    -moz-filter: none;
+    -ms-filter: none
 }
 
 body.is-menu-visible #menu .inner {
