@@ -1,15 +1,115 @@
-(function($){skel.breakpoints({xlarge:'(max-width: 1680px)',large:'(max-width: 1280px)',medium:'(max-width: 980px)',small:'(max-width: 736px)',xsmall:'(max-width: 480px)',xxsmall:'(max-width: 360px)'});$.fn._parallax=(skel.vars.browser=='ie'||skel.vars.browser=='edge'||skel.vars.mobile)?function(){return $(this)}:function(intensity){var $window=$(window),$this=$(this);if(this.length==0||intensity===0)
-	return $this;if(this.length>1){for(var i=0;i<this.length;i++)
-	$(this[i])._parallax(intensity);return $this}
-	if(!intensity)
-	intensity=0.25;$this.each(function(){var $t=$(this),on,off;on=function(){$t.css('background-position','center 100%, center 100%, center 0px');$window.on('scroll._parallax',function(){var pos=parseInt($window.scrollTop())-parseInt($t.position().top);$t.css('background-position','center '+(pos*(-1*intensity))+'px')})};off=function(){$t.css('background-position','');$window.off('scroll._parallax')};skel.on('change',function(){if(skel.breakpoint('medium').active)(off)();else(on)()})});$window.off('load._parallax resize._parallax').on('load._parallax resize._parallax',function(){$window.trigger('scroll')});return $(this)};$(function(){var $window=$(window),$body=$('body'),$wrapper=$('#wrapper'),$header=$('#header'),$banner=$('#banner');$body.addClass('is-loading');$window.on('load pageshow',function(){window.setTimeout(function(){$body.removeClass('is-loading')},100)});$window.on('unload pagehide',function(){window.setTimeout(function(){$('.is-transitioning').removeClass('is-transitioning')},250)});if(skel.vars.browser=='ie'||skel.vars.browser=='edge')
-	$body.addClass('is-ie');$('form').placeholder();skel.on('+medium -medium',function(){$.prioritize('.important\\28 medium\\29',skel.breakpoint('medium').active)});$('.scrolly').scrolly({offset:function(){return $header.height()-2}});var $tiles=$('.tiles > article');$tiles.each(function(){var $this=$(this),$image=$this.find('.image'),$img=$image.find('img'),$link=$this.find('.link'),x;$this.css('background-image','url('+$img.attr('src')+')');if(x=$img.data('position'))
-	$image.css('background-position',x);$image.hide();if($link.length>0){$x=$link.clone().text('').addClass('primary').appendTo($this);$link=$link.add($x);$link.on('click',function(event){var href=$link.attr('href');event.stopPropagation();event.preventDefault();$this.addClass('is-transitioning');$wrapper.addClass('is-transitioning');window.setTimeout(function(){if($link.attr('target')=='_blank')
-	window.open(href);else location.href=href},500)})}});if(skel.vars.IEVersion<9)
-	$header.removeClass('alt');if($banner.length>0&&$header.hasClass('alt')){$window.on('resize',function(){$window.trigger('scroll')});$window.on('load',function(){$banner.scrollex({bottom:$header.height()+10,terminate:function(){$header.removeClass('alt')},enter:function(){$header.addClass('alt')},leave:function(){$header.removeClass('alt');$header.addClass('reveal')}});window.setTimeout(function(){$window.triggerHandler('scroll')},100)})}
-	$banner.each(function(){var $this=$(this),$image=$this.find('.image'),$img=$image.find('img');$this._parallax(0.275);if($image.length>0){$this.css('background-image','url('+$img.attr('src')+')');$image.hide()}});var $menu=$('#menu'),$menuInner;$menu.wrapInner('<div class="inner"></div>');$menuInner=$menu.children('.inner');$menu._locked=!1;$menu._lock=function(){if($menu._locked)
-	return!1;$menu._locked=!0;window.setTimeout(function(){$menu._locked=!1},350);return!0};$menu._show=function(){if($menu._lock())
-	$body.addClass('is-menu-visible')};$menu._hide=function(){if($menu._lock())
-	$body.removeClass('is-menu-visible')};$menu._toggle=function(){if($menu._lock())
-	$body.toggleClass('is-menu-visible')};$menuInner.on('click',function(event){event.stopPropagation()}).on('click','a',function(event){var href=$(this).attr('href');event.preventDefault();event.stopPropagation();$menu._hide();window.setTimeout(function(){window.location.href=href},250)});$menu.appendTo($body).on('click',function(event){event.stopPropagation();event.preventDefault();$body.removeClass('is-menu-visible')}).append('<a class="close" href="#menu">Close</a>');$body.on('click','a[href="#menu"]',function(event){event.stopPropagation();event.preventDefault();$menu._toggle()}).on('click',function(event){$menu._hide()}).on('keydown',function(event){if(event.keyCode==27)
-	$menu._hide()})})})(jQuery)
+// Simple menu toggle without jQuery dependency
+(function() {
+  'use strict';
+  
+  function init() {
+    var body = document.body;
+    var menu = document.getElementById('menu');
+    var menuToggle = document.querySelector('a[href="#menu"]');
+    
+    // Ensure menu has inner wrapper with correct structure
+    var menuInner = menu.querySelector('.inner');
+    if (!menuInner) {
+      // Create wrapper for inner content
+      var wrapper = document.createElement('div');
+      wrapper.className = 'inner';
+      
+      // Move all direct children to wrapper
+      while (menu.firstChild) {
+        wrapper.appendChild(menu.firstChild);
+      }
+      menu.appendChild(wrapper);
+      menuInner = wrapper;
+    }
+    
+    // Ensure close button exists
+    if (!menu.querySelector('.close')) {
+      var closeBtn = document.createElement('a');
+      closeBtn.className = 'close';
+      closeBtn.href = '#menu';
+      closeBtn.textContent = 'Close';
+      menuInner.appendChild(closeBtn);
+    }
+    
+    // Menu state management
+    menu._isLocked = false;
+    
+    menu._lock = function() {
+      if (menu._isLocked) return false;
+      menu._isLocked = true;
+      setTimeout(function() {
+        menu._isLocked = false;
+      }, 350);
+      return true;
+    };
+    
+    menu._toggle = function() {
+      if (menu._lock()) {
+        body.classList.toggle('is-menu-visible');
+      }
+    };
+    
+    menu._show = function() {
+      if (menu._lock()) {
+        body.classList.add('is-menu-visible');
+      }
+    };
+    
+    menu._hide = function() {
+      if (menu._lock()) {
+        body.classList.remove('is-menu-visible');
+      }
+    };
+    
+    // Event handlers
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        menu._toggle();
+      });
+    }
+    
+    // Close menu when clicking outside (on the dark overlay)
+    document.addEventListener('click', function(e) {
+      if (body.classList.contains('is-menu-visible')) {
+        if (!menuInner.contains(e.target) && e.target !== menuToggle) {
+          menu._hide();
+        }
+      }
+    });
+    
+    // Also close menu when clicking directly on #menu (dark overlay)
+    menu.addEventListener('click', function(e) {
+      if (body.classList.contains('is-menu-visible')) {
+        if (!menuInner.contains(e.target)) {
+          menu._hide();
+        }
+      }
+    });
+    
+    // Close menu on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.keyCode === 27) {
+        menu._hide();
+      }
+    });
+    
+    // Close menu when clicking on close button
+    var closeBtn = menu.querySelector('.close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        menu._hide();
+      });
+    }
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
