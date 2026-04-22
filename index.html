@@ -99,6 +99,55 @@
         gap: 10px;
       }
 
+      @media screen and (max-width: 736px) {
+        header#header {
+          gap: 0;
+          align-items: stretch;
+          align-content: flex-start;
+        }
+
+        header#header .logo {
+          white-space: normal;
+          padding: 0.5em 1em;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex: 1;
+          min-width: 0;
+        }
+
+        header#header .logo strong {
+          margin-right: 0;
+          padding: 0;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          min-height: auto;
+          height: auto;
+          background: transparent !important;
+          background-color: transparent !important;
+        }
+        
+        header#header .logo span {
+          display: inline !important;
+        }
+
+        .project-filter {
+          position: absolute;
+          right: 3.5em;
+          top: 50%;
+          transform: translateY(-50%);
+          margin-left: 0;
+          pointer-events: auto;
+        }
+      }
+
+      @media screen and (max-width: 404px) {
+        header#header .logo strong .last-name {
+          margin-top: 0.1em;
+        }
+      }
+
     </style>
   </head>
 
@@ -106,7 +155,7 @@
     <div id="wrapper">
       <header id="header" class="navbar-fixed-top">
         <a class="logo"
-          ><strong>Eugenio Sainte Marie</strong
+          ><strong><span class="first-name">Eugenio</span> <span class="last-name">Sainte Marie</span></strong
           ><span class="plus">
             Development / Portfolio</span
           ></a
@@ -120,37 +169,6 @@
           <a href="#menu" aria-label="Abrir menú"></a>
         </nav>
       </header>
-      <nav id="menu">
-        <ul class="links">
-          <li>
-            <h1 class="menuh1">Eugenio Sainte Marie</h1>
-            <h2 class="menuh2">
-              Development
-            </h2>
-          </li>
-        </ul>
-        <ul class="actions vertical">
-          <li>
-            <a
-              href="mailto:e.saintemarie@outlook.com?subject=Desarrollo web"
-              class="button special fit"
-              ><i class="fa fa-envelope"></i> Email</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/eugeniosaintemarie"
-              target="_blank"
-              class="icon alt fa-linkedin"
-            ></a>
-            <a
-              href="https://github.com/eugeniosaintemarie"
-              target="_blank"
-              class="icon alt fa-github"
-            ></a>
-          </li>
-        </ul>
-      </nav>
       <div id="main">
         <section id="one" class="tiles">
           <article>
@@ -669,5 +687,36 @@
         });
       </script>
     </div>
+    <nav id="menu">
+      <ul class="links">
+        <li>
+          <h1 class="menuh1">Eugenio Sainte Marie</h1>
+          <h2 class="menuh2">
+            Development
+          </h2>
+        </li>
+      </ul>
+      <ul class="actions vertical">
+        <li>
+          <a
+            href="mailto:e.saintemarie@outlook.com?subject=Desenvolvimento web"
+            class="button special fit"
+            ><i class="fa fa-envelope"></i> Email</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/eugeniosaintemarie"
+            target="_blank"
+            class="icon alt fa-linkedin"
+          ></a>
+          <a
+            href="https://github.com/eugeniosaintemarie"
+            target="_blank"
+            class="icon alt fa-github"
+          ></a>
+        </li>
+      </ul>
+    </nav>
   </body>
 </html>
