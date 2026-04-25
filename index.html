@@ -127,7 +127,7 @@
           background: transparent !important;
           background-color: transparent !important;
         }
-        
+
         header#header .logo span {
           display: inline !important;
         }
@@ -147,7 +147,6 @@
           margin-top: 0.1em;
         }
       }
-
     </style>
   </head>
 
@@ -155,15 +154,15 @@
     <div id="wrapper">
       <header id="header" class="navbar-fixed-top">
         <a class="logo"
-          ><strong><span class="first-name">Eugenio</span> <span class="last-name">Sainte Marie</span></strong
-          ><span class="plus">
-            Development / Portfolio</span
-          ></a
+          ><strong
+            ><span class="first-name">Eugenio</span>
+            <span class="last-name">Sainte Marie</span></strong
+          ><span class="plus"> Development / Portfolio</span></a
         >
         <select id="projectFilter" class="project-filter">
-          <option value="">ALL</option>
-          <option value="&lt;/app&gt;">APPS</option>
-          <option value="&lt;/site&gt;">SITES</option>
+          <option value="">&lt;/all&gt;</option>
+          <option value="&lt;/app&gt;">&lt;/apps&gt;</option>
+          <option value="&lt;/site&gt;">&lt;/sites&gt;</option>
         </select>
         <nav>
           <a href="#menu" aria-label="Abrir menú"></a>
@@ -174,11 +173,6 @@
           <article>
             <header class="major">
               <h3>
-                <!--<a
-                  href="https://encontratumascota.vercel.app?ref=portfolio"
-                  target="_blank"
-                  >Encontra Tu Mascota</a
-                >-->
                 <a
                   href="https://www.encontratumascota.ar?ref=portfolio"
                   target="_blank"
@@ -662,25 +656,20 @@
             tilesSection.querySelectorAll("article"),
           );
 
-          // Guardar clones de todos los articles para poder restaurarlos
           const articlesData = allArticles.map((article) => ({
             element: article,
-            clone: article.cloneNode(true),
             tag:
               article.querySelector(".project-tag")?.textContent.trim() || null,
           }));
 
-          // Agregar evento al selector
           filterSelect.addEventListener("change", function () {
             const selectedTag = this.value;
 
-            // Remover todos los articles del DOM
-            allArticles.forEach((article) => article.remove());
-
-            // Agregar solo los que coincidan con el filtro
             articlesData.forEach((data) => {
               if (selectedTag === "" || data.tag === selectedTag) {
-                tilesSection.appendChild(data.clone);
+                data.element.style.display = "";
+              } else {
+                data.element.style.display = "none";
               }
             });
           });
@@ -691,9 +680,7 @@
       <ul class="links">
         <li>
           <h1 class="menuh1">Eugenio Sainte Marie</h1>
-          <h2 class="menuh2">
-            Development
-          </h2>
+          <h2 class="menuh2">Development</h2>
         </li>
       </ul>
       <ul class="actions vertical">
