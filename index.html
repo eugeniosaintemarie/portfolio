@@ -736,6 +736,20 @@
               }
             });
           });
+
+          tilesSection.addEventListener("click", function (e) {
+            const article = e.target.closest("article");
+            if (!article) return;
+            const link = article.querySelector("h3 a");
+            if (link) {
+              e.preventDefault();
+              window.open(link.href, "_blank");
+            }
+          });
+
+          tilesSection.addEventListener("dblclick", function (e) {
+            e.preventDefault();
+          });
         });
       </script>
     </div>
