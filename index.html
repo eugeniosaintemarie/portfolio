@@ -1,43 +1,39 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,user-scalable=no"
-    />
-    <title>Eugenio Sainte Marie | Development / Portfolio</title>
-    <meta
-      property="og:title"
-      content="Eugenio Sainte Marie | Development / Portfolio"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eugenio Sainte Marie — Developer</title>
     <meta
       name="description"
-      content="Eugenio Sainte Marie | Development / Portfolio"
+      content="Eugenio Sainte Marie — developer based in Buenos Aires, Argentina. Web apps, experiments and client projects."
     />
+    <meta name="theme-color" content="#0e1116" />
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme =
+            localStorage.getItem("theme") === "light" ? "light" : "dark";
+        } catch (e) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+    <link rel="icon" href="assets/favicon.gif" type="image/gif" />
+    <link rel="canonical" href="https://portfolio.eugeniosm.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Eugenio Sainte Marie" />
+    <meta property="og:title" content="Eugenio Sainte Marie — Developer" />
     <meta
       property="og:description"
-      content="Eugenio Sainte Marie | Development / Portfolio"
+      content="Developer based in Buenos Aires, Argentina. Web apps, experiments and client projects."
     />
-    <meta
-      name="keywords"
-      content="Eugenio, Sainte Marie, E. S. M., diseño, desarrollo, web, portfolio, contacto, Ciudad Autónoma de Buenos Aires, Argentina"
-    />
-    <link rel="icon" href="assets/favicon.gif" type="image/gif" />
     <meta
       property="og:image"
       content="https://portfolio.eugeniosm.com/assets/images/0banner.jpg"
     />
     <meta property="og:url" content="https://portfolio.eugeniosm.com" />
-    <meta property="og:type" content="website" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="assets/css/site.css" />
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-LNQ47VG50M"
@@ -50,753 +46,373 @@
       gtag("js", new Date());
       gtag("config", "G-LNQ47VG50M");
     </script>
-    <style>
-      .project-filter {
-        padding: 8px 12px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        background-color: white;
-        font-family: inherit;
-        font-size: 14px;
-        cursor: pointer;
-        color: #555;
-        transition: all 0.3s ease;
-        width: 100px;
-        margin-left: 20px;
-        flex-shrink: 0;
-        font-weight: 600;
-      }
-
-      .project-filter:hover {
-        border-color: #888;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .project-filter:focus {
-        outline: none;
-        border-color: #333;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-      }
-
-      header#header {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-
-      header#header .logo {
-        white-space: nowrap;
-        flex-shrink: 0;
-        position: relative !important;
-      }
-
-      header#header nav {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      @media screen and (max-width: 736px) {
-        header#header {
-          gap: 0;
-          align-items: stretch;
-          align-content: flex-start;
-        }
-
-        header#header .logo {
-          white-space: normal;
-          padding: 0.5em 1em;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          flex: 1;
-          min-width: 0;
-        }
-
-        header#header .logo strong {
-          margin-right: 0;
-          padding: 0;
-          color: #fff;
-          display: flex;
-          flex-direction: column;
-          min-height: auto;
-          height: auto;
-          background: transparent !important;
-          background-color: transparent !important;
-        }
-
-        header#header .logo span {
-          display: inline !important;
-        }
-
-        .project-filter {
-          position: absolute;
-          right: 3.5em;
-          top: 50%;
-          transform: translateY(-50%);
-          margin-left: 0;
-          pointer-events: auto;
-        }
-      }
-
-      @media screen and (max-width: 404px) {
-        header#header .logo strong .last-name {
-          margin-top: 0.1em;
-        }
-      }
-    </style>
   </head>
 
   <body>
-    <div id="wrapper">
-      <header id="header" class="navbar-fixed-top">
-        <a class="logo"
-          ><strong
-            ><span class="first-name">Eugenio</span>
-            <span class="last-name">Sainte Marie</span></strong
-          ><span class="plus"> Development / Portfolio</span></a
-        >
-        <select id="projectFilter" class="project-filter">
-          <option value="">/all</option>
-          <option value="&lt;/app&gt;">/apps</option>
-          <option value="&lt;/site&gt;">/sites</option>
-        </select>
-        <nav>
-          <a href="#menu" aria-label="Abrir menú"></a>
+    <div class="container">
+      <header class="site-header">
+        <h1>Eugenio <strong>Sainte Marie</strong></h1>
+        <div class="tagline-row">
+          <p class="tagline">
+            Developer based in Buenos Aires 🇦🇷 I enjoy building things
+          </p>
+          <p class="social">
+          <a href="mailto:hola@eugeniosm.com" target="_blank" rel="noopener" aria-label="Email"
+            ><svg viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg
+          ></a>
+          <a href="https://github.com/eugeniosaintemarie" target="_blank" rel="me noopener" aria-label="GitHub"
+            ><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg
+          ></a>
+          <a href="https://www.linkedin.com/in/eugeniosaintemarie" target="_blank" rel="me noopener" aria-label="LinkedIn"
+            ><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg
+          ></a>
+          </p>
+        </div>
+        <nav aria-label="Sections">
+          <a href="#projects">Projects</a>
+          <a href="#clients">Clients</a>
+          <a href="#tools">Tools</a>
+          <a href="#personal">Personal</a>
+          <a href="#archive">Archive</a>
+          <button
+            class="theme-toggle"
+            type="button"
+            role="switch"
+            aria-checked="true"
+            aria-label="Switch to light theme"
+          >
+            <span class="theme-toggle-track">
+              <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              <span class="theme-toggle-knob"></span>
+              <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+            </span>
+          </button>
         </nav>
       </header>
-      <div id="main">
-        <section id="one" class="tiles">
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://github.com/eugeniosaintemarie/chat"
-                  target="_blank"
-                  >OpenCode chat</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Open-source and self-hostable conversational frontend</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <!--<a
-                  href="https://spotidata.vercel.app?ref=portfolio"
-                  target="_blank"
-                  >Spotify Data</a
-                >-->
-                <a
-                  href="https://spotifydata.eugeniosm.com?ref=portfolio"
-                  target="_blank"
-                  >Spotify Data</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Visualize your Spotify listening history</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <!--<a
-                  href="https://encontratumascota.vercel.app?ref=portfolio"
-                  target="_blank"
-                  >Encontra Tu Mascota</a
-                >-->
-                <a
-                  href="https://encontratumascota.ar?ref=portfolio"
-                  target="_blank"
-                  >Encontra Tu Mascota</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i
-                  >Collaborative platform to reunite pets with their families</i
-                >
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://github.com/eugeniosaintemarie/youtube-subscriptions"
-                  target="_blank"
-                  >YouTube subscriptions<span class="small-italic">
-                    tool</span
-                  ></a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Better visualization and management</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://github.com/eugeniosaintemarie/chinese-now-android-widget"
-                  target="_blank"
-                  >Chinese Now - Android widget</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Calendar information in chinese</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <!--<a
-                  href="https://musicset.vercel.app?ref=portfolio"
-                  target="_blank"
-                  >Set</a
-                >-->
-                <a
-                  href="https://play.eugeniosm.com?ref=portfolio"
-                  target="_blank"
-                  >Set</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Web player for music set</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/chinese-words?ref=portfolio"
-                  target="_blank"
-                  >Chinese words</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Chinese symbols meanings</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/chinese-now?ref=portfolio"
-                  target="_blank"
-                  >Chinese now</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Calendar information in chinese</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <!--<a
-                  href="https://eugeniosm.vercel.app?ref=portfolio"
-                  target="_blank"
-                  >Links</a
-                >-->
-                <a
-                  href="https://hub.eugeniosm.com?ref=portfolio"
-                  target="_blank"
-                  >Links</a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://baza-tracker.vercel.app?ref=portfolio"
-                  target="_blank"
-                  >La Baza tracker</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Card game tracker</i>
-                <span class="project-tag"> &lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://coffee-doro.vercel.app?ref=portfolio"
-                  target="_blank"
-                  >Coffeedoro <span class="small-italic"> tool</span></a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Pomodoro-coffee style</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://generala-tracker.vercel.app?ref=portfolio"
-                  target="_blank"
-                  >Generala tracker</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Dice game tracker</i>
-                <span class="project-tag"> &lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/amigos-de-mierda?ref=portfolio"
-                  target="_blank"
-                  >Amigos de mierda</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Digitized board game</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/whatsapp-chat?ref=portfolio"
-                  target="_blank"
-                  >WhatsApp number2chat<span class="small-italic">
-                    tool</span
-                  ></a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Chat a number without save it</i>
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/hsbc-life-so-gallery?ref=portfolio"
-                  target="_blank"
-                  >HSBC Seguros Online</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Screenshots gallery</i>
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/hsbc-life-so?ref=portfolio"
-                  target="_blank"
-                  >HSBC Seguros Online</a
-                >
-              </h3>
-              <p class="no-transform">
-                <i>Progressive Web App functionality</i>
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/phrases?ref=portfolio"
-                  target="_blank"
-                  >Phrases</a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/quotes?ref=portfolio"
-                  target="_blank"
-                  >Quotes</a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="assets/images/logan-ai-construccion.jpg"
-                  target="_blank"
-                  >Logan Media</a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a href="https://eugeniosm.com/loganmedia-dino/" target="_blank"
-                  >Logan Ads - T-Rex ad web game</a
-                ><span class="small-italic"> product</span>
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/loganmedia-adlanding/"
-                  target="_blank"
-                  >Logan Ads - 'MRAID' ad</a
-                ><span class="small-italic"> product</span>
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/loganmedia-creativeservices/"
-                  target="_blank"
-                  >Logan Ads | Creative Services</a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://pomodoro-esm.netlify.app/#?portfolio"
-                  target="_blank"
-                  >Pomodoro <span class="small-italic"> tool</span></a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a href="https://eugeniosm.com?ref=portfolio" target="_blank"
-                  >Home</a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://notes.eugeniosm.com?ref=portfolio"
-                  target="_blank"
-                  >Notes</a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/app&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://photos.eugeniosm.com?ref=portfolio"
-                  target="_blank"
-                  >Photos</a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a href="assets/images/gnconstrucciones-web.jpg" target="_blank"
-                  >GN Diseño & Refacciones</a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/portfolio-v1?ref=portfolio"
-                  target="_blank"
-                  >Portfolio<span class="small-italic"> v1</span></a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/advice-v1?ref=portfolio"
-                  target="_blank"
-                  >Consultancy<span class="small-italic"> old</span></a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                Fundación Debra Argentina
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/contact-v1?ref=portfolio"
-                  target="_blank"
-                  >Contact<span class="small-italic"> old</span></a
-                >
-              </h3>
-              <p class="author-name">
-                Eugenio Sainte Marie
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                Centro Juvenil | Casa San Francisco de Sales
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/mar?ref=portfolio"
-                  target="_blank"
-                  >María Angélica Reinoso | Alta Costura</a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://eugeniosm.com/cherquetti?ref=portfolio"
-                  target="_blank"
-                  >Cherquetti Propiedades</a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://bit-dex.github.io/bitdex?ref=portfolio"
-                  target="_blank"
-                  >Bitdex (noticias)</a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a
-                  href="https://bit-dex.github.io/bitdex?ref=portfolio"
-                  target="_blank"
-                  >Bitdex (consultora)</a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-          <article>
-            <header class="major">
-              <h3>
-                <a href="https://www.twitter.com/direccionpost" target="_blank"
-                  >Dirección Digital</a
-                >
-              </h3>
-              <p class="no-transform">
-                <span class="project-tag">&lt;/site&gt;</span>
-              </p>
-            </header>
-          </article>
-        </section>
-      </div>
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.scrolly.min.js"></script>
-      <script src="assets/js/jquery.scrollex.min.js"></script>
-      <script src="assets/js/skel.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <script src="assets/js/main.js"></script>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const filterSelect = document.getElementById("projectFilter");
-          const tilesSection = document.querySelector("section.tiles");
-          const allArticles = Array.from(
-            tilesSection.querySelectorAll("article"),
-          );
 
-          const articlesData = allArticles.map((article) => ({
-            element: article,
-            tag:
-              article.querySelector(".project-tag")?.textContent.trim() || null,
-          }));
+      <main>
+        <details class="collapsible" id="projects" open>
+          <summary><h2>Projects</h2></summary>
+          <ul class="project-list">
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://encontratumascota.ar?ref=portfolio"
+                >Encontra Tu Mascota</a
+              >
+              <span class="desc">Collaborative platform to reunite pets with their families</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://spotifydata.eugeniosm.com?ref=portfolio"
+                >Spotify Data</a
+              >
+              <span class="desc">Visualize all your Spotify listening</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://github.com/eugeniosaintemarie/chat"
+                >OpenCode chat</a
+              >
+              <span class="desc">Open-source and self-hostable frontend for OpenCode API key</span>
+              <span class="tag">#app</span>
+            </li>
+            </ul>
+        </details>
 
-          filterSelect.addEventListener("change", function () {
-            const selectedTag = this.value;
+        <details class="collapsible" id="clients" open>
+          <summary><h2>Clients</h2></summary>
+          <ul class="project-list">
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/hsbc-life-so?ref=portfolio"
+                >HSBC Seguros Online</a
+              >
+              <span class="desc">Progressive Web App functionality</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a
+                class="title"
+                target="_blank" rel="noopener"
+                href="https://eugeniosm.com/hsbc-life-so-gallery?ref=portfolio"
+                >HSBC Seguros Online (screenshots)</a
+              >
+              <span class="desc">Screenshots gallery</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a
+                class="title"
+                target="_blank" rel="noopener"
+                href="https://eugeniosm.com/loganmedia-creativeservices/"
+                >Logan Media | Creative Services</a
+              >
+              <span class="desc">Site for the creative services arm</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="assets/images/logan-ai-construccion.jpg"
+                >Logan Media | 'Coming Soon'</a
+              >
+              <span class="desc">Landing</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/loganmedia-dino/"
+                >Logan Ads — T-Rex web game product</a
+              >
+              <span class="desc">Advergame mobile web game</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/loganmedia-adlanding/"
+                >Logan Ads — MRAID product</a
+              >
+              <span class="desc">Rich media ad unit</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="assets/images/gnconstrucciones-web.jpg"
+                >GN Diseño &amp; Refacciones</a
+              >
+              <span class="desc">Construction landing</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <span class="title">Fundación Debra Argentina</span>
+              <span class="desc">NGO landing</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <span class="title">Centro Juvenil | San Francisco de Sales</span>
+              <span class="desc">Educational landing &amp; blog</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/mar?ref=portfolio"
+                >María Angélica Reinoso</a
+              >
+              <span class="desc">Fashion landing</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/cherquetti?ref=portfolio"
+                >Cherquetti Propiedades</a
+              >
+              <span class="desc">Real estate site</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://bit-dex.github.io/bitdex?ref=portfolio"
+                >Bitdex (news)</a
+              >
+              <span class="desc">News site</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://bit-dex.github.io/bitdex?ref=portfolio"
+                >Bitdex (consultancy)</a
+              >
+              <span class="desc">Consulting site</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://www.twitter.com/direccionpost"
+                >Dirección Digital</a
+              >
+              <span class="desc">Digital communications project</span>
+              <span class="tag">#site</span>
+            </li>
+          </ul>
+        </details>
 
-            articlesData.forEach((data) => {
-              if (selectedTag === "" || data.tag === selectedTag) {
-                data.element.style.display = "";
-              } else {
-                data.element.style.display = "none";
-              }
-            });
-          });
+        <details class="collapsible" id="tools" open>
+          <summary><h2>Tools</h2></summary>
+          <ul class="project-list">
+            <li>
+              <a
+                class="title"
+                target="_blank" rel="noopener"
+                href="https://github.com/eugeniosaintemarie/youtube-subscriptions"
+                >YouTube subscriptions</a
+              >
+              <span class="desc">Better visualization and management</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a
+                class="title"
+                target="_blank" rel="noopener"
+                href="https://github.com/eugeniosaintemarie/chinese-now-android-widget"
+                >Chinese Now — Android widget</a
+              >
+              <span class="desc">Calendar information</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/chinese-now?ref=portfolio"
+                >Chinese Now</a
+              >
+              <span class="desc">Calendar information</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/chinese-words?ref=portfolio"
+                >Chinese words</a
+              >
+              <span class="desc">Symbols and meanings</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://baza-tracker.vercel.app?ref=portfolio"
+                >La Baza tracker</a
+              >
+              <span class="desc">Card game tracker</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://generala-tracker.vercel.app?ref=portfolio"
+                >Generala tracker</a
+              >
+              <span class="desc">Dice game tracker</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/amigos-de-mierda?ref=portfolio"
+                >Amigos de mierda</a
+              >
+              <span class="desc">Digitized board game</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://coffee-doro.vercel.app?ref=portfolio"
+                >Coffeedoro</a
+              >
+              <span class="desc">Pomodoro with coffee style</span>
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://pomodoro-esm.netlify.app/#?portfolio"
+                >Pomodoro</a
+              >
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/whatsapp-chat?ref=portfolio"
+                >WhatsApp number2chat</a
+              >
+              <span class="desc">Chat with a number without saving it</span>
+              <span class="tag">#site</span>
+            </li>
+          </ul>
+        </details>
 
-          tilesSection.addEventListener("click", function (e) {
-            const article = e.target.closest("article");
-            if (!article) return;
-            const link = article.querySelector("h3 a");
-            if (link) {
-              e.preventDefault();
-              window.open(link.href, "_blank");
-            }
-          });
+        <details class="collapsible" id="personal" open>
+          <summary><h2>Personal</h2></summary>
+          <ul class="project-list">
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com?ref=portfolio">Home</a>
+              <span class="desc">Starting point</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://hub.eugeniosm.com?ref=portfolio">Links</a>
+              <span class="desc">Hub</span>
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://photos.eugeniosm.com?ref=portfolio"
+                >Photos</a
+              >
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/phrases?ref=portfolio"
+                >Phrases</a
+              >
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/quotes?ref=portfolio"
+                >Quotes</a
+              >
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://notes.eugeniosm.com?ref=portfolio"
+                >Notes</a
+              >
+              <span class="tag">#app</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://play.eugeniosm.com?ref=portfolio"
+                >Set</a
+              >
+              <span class="desc">Web player for music sets</span>
+              <span class="tag">#app</span>
+            </li>
+          </ul>
+        </details>
 
-          tilesSection.addEventListener("dblclick", function (e) {
-            e.preventDefault();
-          });
-        });
-      </script>
+        <details class="archive" id="archive">
+          <summary>Archive</summary>
+          <ul class="project-list">
+            <li>
+              <a
+                class="title"
+                target="_blank" rel="noopener"
+                href="https://eugeniosm.com/portfolio-v1?ref=portfolio"
+                >Portfolio v1</a
+              >
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/contact-v1?ref=portfolio"
+                >Contact (old)</a
+              >
+              <span class="tag">#site</span>
+            </li>
+            <li>
+              <a class="title" target="_blank" rel="noopener" href="https://eugeniosm.com/advice-v1?ref=portfolio"
+                >Consultancy (old)</a
+              >
+              <span class="tag">#site</span>
+            </li>
+          </ul>
+        </details>
+      </main>
     </div>
-    <nav id="menu">
-      <ul class="links">
-        <li>
-          <h1 class="menuh1">Eugenio Sainte Marie</h1>
-          <h2 class="menuh2">Development</h2>
-        </li>
-      </ul>
-      <ul class="actions vertical">
-        <li>
-          <a
-            href="mailto:hola@eugeniosm.com?subject=Consulta sobre desarrollo"
-            class="button special fit"
-            ><i class="fa fa-envelope"></i> Email</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/eugeniosaintemarie"
-            target="_blank"
-            class="icon alt fa-linkedin"
-          ></a>
-          <a
-            href="https://github.com/eugeniosaintemarie"
-            target="_blank"
-            class="icon alt fa-github"
-          ></a>
-        </li>
-      </ul>
-    </nav>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var toggle = document.querySelector(".theme-toggle");
+        var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+        function apply(theme) {
+          root.dataset.theme = theme;
+          if (toggle) {
+            toggle.setAttribute("aria-checked", theme === "dark" ? "true" : "false");
+            toggle.setAttribute(
+              "aria-label",
+              theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+            );
+          }
+          if (themeMeta) {
+            themeMeta.content = theme === "dark" ? "#0e1116" : "#fafaf8";
+          }
+        }
+
+        if (toggle) {
+          toggle.addEventListener("click", function () {
+            var next = root.dataset.theme === "dark" ? "light" : "dark";
+            apply(next);
+            try {
+              localStorage.setItem("theme", next);
+            } catch (e) {}
+          });
+        }
+
+        apply(root.dataset.theme || "dark");
+      })();
+    </script>
   </body>
 </html>
