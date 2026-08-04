@@ -99,9 +99,20 @@ a:focus-visible {
 .site-header nav {
   margin-top: 1.75rem;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.nav-links {
+  flex: 1 1 17em;
+  min-width: 0;
+  max-width: 34em;
+  display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 1.25rem;
-  font-size: 0.9rem;
 }
 
 .site-header nav a {
@@ -238,7 +249,6 @@ summary h2 {
 .theme-toggle {
   display: inline-flex;
   padding: 0;
-  margin-left: auto;
   border: none;
   background: none;
   cursor: pointer;
