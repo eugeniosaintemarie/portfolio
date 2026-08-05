@@ -381,6 +381,10 @@
           </ul>
         </details>
       </main>
+
+      <footer class="site-footer">
+        <p>∃ugenio © <span id="year">2026</span></p>
+      </footer>
     </div>
 
     <script>
@@ -414,6 +418,11 @@
         }
 
         apply(root.dataset.theme || "dark");
+
+        var year = document.getElementById("year");
+        if (year) {
+          year.textContent = String(new Date().getFullYear());
+        }
       })();
     </script>
   </body>
